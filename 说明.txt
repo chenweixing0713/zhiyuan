@@ -1,0 +1,1 @@
+本项目使用bootstrap+layerui+javascript+css+html5进行开发，后期可能会适当引入一些库，如果引入库，将会在这个文件进行说明

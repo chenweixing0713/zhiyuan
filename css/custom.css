@@ -1,0 +1,179 @@
+body{
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+.h1, .h2, .h3, h1, h2, h3{
+    margin:10px;
+    padding: 5px;
+}
+p,span{
+	margin: 0px;
+	padding: 0px;
+}
+.header{
+	background: #55acef;
+	padding: 10px;
+}
+.touxiang{
+	display: block;
+	margin: 10px auto;
+}
+.touxiang img{
+	display: block;
+	margin: 10px auto;
+}
+.headerp{
+	padding:20px 5px;
+	text-align: center;
+}
+.headerp span{
+	padding: 5px 10px;
+	color: #fff;
+	font-size: 18px;
+}
+.fenshuxian{
+	background: #d1c0a6;
+}
+.fenshuxian h3{
+	color: #fff;
+	padding:15px 0px;
+}
+.footer{
+	background: #535353;
+	padding:60px 40px;
+}
+.content{
+	padding:40px 10px;
+}
+.xuexiao{
+	text-align: center;
+}
+.daxx img{
+	display: block;
+	margin: auto;
+	width: 100%;
+	max-width: 140px;
+}
+.shouy{
+	text-align: center;
+	padding: 20px 0px;
+	font-size: 12px;
+}
+.yuanxiao{
+	text-align: center;
+	padding:80px 20px;
+}
+.yxx{
+	border-bottom: 5px solid #dfdbdc;
+}
+.yuanxiao span{
+	color: #fff;
+	font-size: 24px;
+	font-weight: 500;
+}
+.ssou{
+	margin: 20px;
+}
+.meio{
+	border-top: 5px solid #dfdbdc;
+}
+.pici{
+	text-align: center;
+	padding: 15px;
+}
+.black span{
+	color:#333 !important;
+}
+.detail{
+	display: block;
+	float: left;
+}
+.meqt img{
+	width: 100%;
+	max-width: 140px;
+	display: block;
+	float: left;
+	margin-left: -10px;
+}
+.maw{
+	padding: 0px;
+}
+.xingzhi{
+	padding:0px 0px;
+}
+.xingzhi span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+}
+.pee{
+	text-align: left;
+	padding: 5px 0px;
+}
+.eme h3{
+	text-align: center;
+}
+.nge{
+	background-image: url("../image/2.png");
+	height:100%;
+	max-height: 380px
+	width: 100%;
+	max-width:700px;
+	background-repeat: no-repeat;
+}
+.mepp p{
+	padding: 5px 20px;
+}
+.borderbottom{
+	border-bottom: 10px solid #dfdbdc;
+}
+.center{
+	text-align: center;
+}
+.borderright{
+	border-right: 2px solid #dfdbdc;
+}
+.borderleft{
+	border-left: 2px solid #dfdbdc;
+}
+#footer p{
+	color: #fff;
+	z-index: 10000;
+	text-align: center;
+}
+.grey{
+	background: #dfdbdc !important;
+}
+.towardsright h3:before{
+	content:"\009B";
+	padding-right:5px;
+}
+@media (min-width:360px){
+.container{
+    width: 100% !important;
+}
+}
+@media (min-width:768px){
+.container{
+    width: 100% !important;
+}
+}
+@media (min-width:1200px){
+.container{
+    width: 100% !important;
+}
+}
+.blue{
+	background-color: rgba(51, 122, 183, 0.56) !important;
+	margin-bottom: 0px !important;
+}
+.vertical{
+	line-height: 50px;
+    height: 50px;
+}
+.bordernone{
+	border-bottom:0px !important;
+}
+.padding20{
+	padding:40px 15px !important;
+}

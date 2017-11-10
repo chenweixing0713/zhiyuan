@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>常见问题</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/inc.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/custom.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script type="text/javascript">
+		function question_json(){
+		obj = $.ajax({
+		    url: './question.json',
+		    type: 'get',
+		    dataType: 'json',
+		    contentType : "application/json",
+		    data : null,
+		    success: function (user) {
+		        //字符串拼接
+		        var htmlNodes = '';
+		        for(var i = 0; i < user.length; i ++){
+		          var weer='<div class="panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse'+[i]+'">'+[i+1]+"、"+user[i].title+'</a></h4></div><div id="collapse'+[i]+'" class="panel-collapse collapse"><div class="panel-body">'+user[i].content+'</div></div></div></div>';
+		        htmlNodes += weer;
+		        }
+
+		        $('#question_2').append(htmlNodes);
+		    }
+		});
+		console.log(obj);return obj;
+		}
+	</script>
+</head>
+<body onload="question_json();">
+	<div id="page_title" class="row">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header maw" id="school_detail">
+				<script type="text/javascript">
+					document.write("<h3 class='center'>"+document.title+"</h3>");
+				</script>
+			</div>
+		</div>
+
+	</div>
+	<div class="row" id="question_2">
+	</div>
+	<div class="clear"></div>
+
+<div id="footer"></div>
+</body>
+</html>

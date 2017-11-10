@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="cvteApp">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+    function start(){
+      htmlobj = $.ajax({
+                url : "http://www.yoochoice.com:8112/api/gaokao/v1/schools",
+                type : "GET",
+                dataType : "json",
+                contentType : "application/json",
+                data : null,//这里表示在发出请求的时候不传递任何参数
+                success : function(res) {
+                    if (typeof res === 'string') {
+                        res = JSON.parse(res);
+                    }
+
+                    console.log(JSON.stringify(res));
+                    $("#msg").html(JSON.stringify(res));
+                },
+                error : function(xhr, err, exception) {
+                    console.log(err);
+                    $("#msg").html(err);
+                }
+            });
+    }
+    </script>
+</head>
+
+<!-- define angular controller -->
+<body onload="start()">
+    <div id="msg">
+    </div>
+    <table id="t">
+
+        <tr>
+            <td>序号</td>
+            <td>校名</td>
+            <td>地区</td>
+        </tr>
+
+    </table>
+</body>
+</html>

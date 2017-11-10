@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>我能上的大学</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/inc.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/custom.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body onload="Nengshang();">
+	<div id="page_title" class="row">
+		<script type="text/javascript">
+			document.write("<h3 class='center'>"+document.title+"</h3>");
+		</script>
+	</div>
+	<div class="row" id="kemu">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 left">
+			<router-link to="/benke"><h3>地区</h3></router-link>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 right">
+	    	<router-link to="/zhuanke"><h3>筛选</h3></router-link>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<!-- <button type="button" class="btn btn-default btn-primary form-control">学校列表</button> -->
+	<div id="xuexiao">
+
+	</div>
+
+<div id="footer"></div>
+</body>
+</html>

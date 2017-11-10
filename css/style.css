@@ -1,0 +1,263 @@
+body{
+	font-size: 16px;
+	margin-bottom: 60px;
+}
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+ul{
+	list-style-type:none;
+}
+a{ text-decoration: none !important;}
+.footer{
+	background: #666;
+    padding: 10px 0px;
+    position: fixed;
+    bottom: 0px;
+    display: block;
+    width: 100%;
+    margin:0px auto;
+}
+.container{
+	/*margin:0px -15px;*/
+	margin:0px;
+	padding:0px 0px;
+}
+.content{
+	border-bottom:5px solid #f2f2f2;
+	padding:10px;
+}
+.footer a{
+	display:inline-block;
+	margin:0px auto;
+	padding: 10px 5px;
+	border:1px solid #f2f2f2;
+	float: left;
+	width: 25%;
+	color: #333;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.3)
+}
+#page_title{
+	background: #55ACEF;
+    padding: 20px 10px;
+    color: #fff;
+    border-bottom: 5px solid #f2f2f2;
+    margin: 0px auto;
+}
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.subtitle{
+	border-bottom:5px solid #f2f2f2;
+	padding: 10px;
+}
+.subtitle h3{
+	text-align: center;
+}
+#search{
+	padding: 10px;
+    margin: 0px 5px;
+    border-bottom: 2px solid #f2f2f2;
+}
+#kemu{
+	margin: 10px auto;
+    border-bottom: 5px solid #f2f2f2;
+    padding: 0px 0px 5px 0px;
+}
+#kemu h3{
+	text-align: center;
+}
+#kemu .right{
+	border-left: 5px solid #f2f2f2;
+}
+#kemu .router-link-active h3{
+	border-bottom: 5px solid #55acef;
+	padding-bottom: 10px;
+	margin-bottom: -10px;
+    display: block;
+}
+#transition,#transition_2{
+	padding: 10px;
+	background: #f2f2f2;
+}
+a{
+	cursor:pointer;
+}
+.middle ul>li:before{
+	content: "\009B";
+	padding:0px 5px;
+	font-size:1.5em;
+}
+.center{
+	text-align: center;
+}
+.touxiang{
+	width:100px;
+	height:100px;
+	background-color:rgba(255, 255, 255, 0.3);
+	border-radius:50px;
+	display: block;
+	margin: 0px auto;
+}
+.touxiang h3{
+	line-height: 100px;
+	height: 100px;
+	text-align: center;
+}
+.layui-show {
+    padding: 10px 20px;
+}
+.layui-collapse {
+    margin: 0px 0px;
+}
+.xinxi h2,.xinxi h3,.xinxi h4{
+	padding-bottom: 13px;
+}
+.toggles{
+	margin:5px auto;
+}
+.brown{
+	background: #d1c0a6;
+	padding:20px 15px;
+	margin-top: -5px;
+}
+#page_title .fens{
+	padding: 10px;
+}
+#pinggu{
+	padding:20px 10px;
+}
+#pinggu h3,#pinggu h4{
+	text-align: center;
+}
+.maoxian,.wentuo,.anquan{
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+}
+#pinggu img{
+	width: 100%;
+	max-width: 150px;
+}
+#tanchuan{
+	background: rgba(85, 172, 239, 0.59);
+    padding: 10px 15px;
+    margin: -15px;
+    display: block;
+}
+#tanchuan p{
+	text-align: right;
+	color:#fff;
+}
+.margin4{
+	margin:4px 0px;
+}
+.logo img{
+	width: 100%;
+	max-width:130px;
+}
+.progress {
+    margin-bottom: 0px;
+}
+.panel-title>.small, .panel-title>.small>a, .panel-title>a, .panel-title>small, .panel-title>small>a {
+    color: inherit;
+    display: block;
+}
+.paddingbot10{
+	padding-bottom: 10px;
+}
+.row{
+	margin:0px !important;
+}
+.clear{
+	clear:both;
+}
+.rrems{
+	margin:5px auto;
+	border-bottom: 1px solid #c1c1c1;
+	padding:10px 0px;
+}
+.description{
+	font-size: 1rem;
+}
+#xuexiao .rrems:nth-child(odd){
+	background: #f1f1f1;
+}
+.progress {
+    height: 20px;
+    margin-bottom: 10px;
+    background-color: rgba(92, 184, 92, 0.56);
+}
+.school_title{
+	margin-top:0px;
+	margin-bottom: 10px;
+}
+.indexmiddle{
+	padding:40px 10px;
+}
+.h3{
+	font-size: 2rem;
+}
+.amew{
+	padding: 20px 0px;
+	background:#fff;
+	border-bottom: 1px solid #ddd;
+}
+.meeps{
+	/*width:200px;*/
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	padding-left: 0px;
+}
+.awesome img{
+	display: block;
+	margin:5px auto;
+	width: 100%;
+}
+.tit p{
+	font-weight: 400;
+	font-size: 1em;
+	color:#5A9820;
+}
+.panel-group .panel {
+    margin-top: 5px;
+}
+.content{
+	padding:10px 0px;
+}
+.tit{
+	padding-left: 0px;
+}
+.padding_0_10{
+	padding:0px 10px !important;
+}
+.padding15{
+	display: block;
+	padding:15px;
+}
+.active{
+	border-bottom:2px solid #5837EE;
+	padding-bottom:20px;
+}
+.padding_0_0{
+	padding:0px 0px !important;
+}
+.jianjie .row img{
+	width: 100%;
+}
+.jianjie p{
+	line-height: 1.5em;
+	margin:0px 10px;
+}
+.padding10{
+	padding:10px;
+}
+.padding_10_0{
+	padding:10px 0px !important;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>普罗米修律师事务所页面</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/inc.js"></script>
+	<!-- <script type="text/javascript" src="js/custom.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="../css/custom.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script type="text/javascript">
+		function sbb(){
+		obj = $.ajax({
+		    url: 'http://www.dingqilawyer.com/wp-json/wp/v2/pages',
+		    type: 'get',
+		    dataType: 'json',
+		    contentType : "application/json",
+		    data : null,
+		    success: function (user) {
+		        //字符串拼接
+		        var htmlNodes = '';
+		        for(var i = 0; i < user.length; i ++){
+		          var weer='<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 meeps"><a href="'+user[i].link+'">'+user[i].title.rendered+'</a></div><div class="clear"></div>';
+		        htmlNodes += '<div class="row amew">'+weer+'</div>';
+		        }
+
+		        $('#ybb').append(htmlNodes);
+		    }
+		});
+		console.log(obj);return obj;
+		}
+
+function useri(){
+		userinf = $.ajax({
+		    url: 'http://www.dingqilawyer.com/wp-json/wp/v2/users',
+		    type: 'get',
+		    dataType: 'json',
+		    contentType : "application/json",
+		    data : null,
+		    success: function (users) {
+		        //字符串拼接
+		        var emin = '';
+		        for(var i = 0; i < users.length; i ++){
+		          var pbr='<div class="row content"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 tit"><span class="center">'+users[i].name+'</span></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 tit"><span class="center">'+users[i].slug+'</span></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 tit"><span class="center">'+users[i].id+'</span></div></div>';
+		        emin += pbr;
+		        }
+
+		        $('#userinfo').append(emin);
+		    }
+		});
+		console.log(userinf);return userinf;
+}
+	</script>
+</head>
+<body>
+	<div id="page_title" class="row">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header maw" id="school_detail">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center awesome">
+					<img src="image/dingqilawyer.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title" onclick="useri();">
+				<a data-toggle="collapse" data-parent="#accordion"
+				   href="#collapseOne">
+					网站作者信息
+				</a>
+			</h4>
+		</div>
+		<div id="collapseOne" class="panel-collapse collapse">
+			<div class="panel-body">
+				<div class="row content">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 tit">
+						<p>作者名</p>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 tit">
+						<p>作者别称</p>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 tit">
+						<p>作者ID</p>
+					</div>
+				</div>
+				<div id="userinfo"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title" onclick="sbb();">
+				<a data-toggle="collapse" data-parent="#accordion"
+				   href="#collapseTwo">
+					<script type="text/javascript">
+						document.write("<span>"+document.title+"</span>");
+					</script>
+				</a>
+			</h4>
+		</div>
+		<div id="collapseTwo" class="panel-collapse collapse">
+			<div class="panel-body">
+				<div id="ybb"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="footer"></div>
+</body>
+</html>

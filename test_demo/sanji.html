@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap 3 的多级下拉菜单示例</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link rel="stylesheet" href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- <script src="//code.jquery.com/jquery-1.10.2.min.js"></script> -->
+    <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style type="text/css">
+        .dropdown-submenu {  
+            position: relative;  
+        }  
+        .dropdown-submenu > .dropdown-menu {  
+            top: 0;  
+            left: 100%;  
+            margin-top: -6px;  
+            margin-left: -1px;  
+            -webkit-border-radius: 0 6px 6px 6px;  
+            -moz-border-radius: 0 6px 6px;  
+            border-radius: 0 6px 6px 6px;  
+        }  
+        .dropdown-submenu:hover > .dropdown-menu {  
+            display: block;  
+        }  
+        .dropdown-submenu > a:after {  
+            display: block;  
+            content: " ";  
+            float: right;  
+            width: 0;  
+            height: 0;  
+            border-color: transparent;  
+            border-style: solid;  
+            border-width: 5px 0 5px 5px;  
+            border-left-color: #ccc;  
+            margin-top: 5px;  
+            margin-right: -10px;  
+        }  
+        .dropdown-submenu:hover > a:after {  
+            border-left-color: #fff;  
+        }  
+        .dropdown-submenu.pull-left {  
+            float: none;  
+        }  
+        .dropdown-submenu.pull-left > .dropdown-menu {  
+            left: -100%;  
+            margin-left: 10px;  
+            -webkit-border-radius: 6px 0 6px 6px;  
+            -moz-border-radius: 6px 0 6px 6px;  
+            border-radius: 6px 0 6px 6px;  
+        }  
+    </style>
+</head>
+<body onload="start();">
+<div class="container">
+    <!-- <div class="row">
+        <h2>Bootstrap 3多级下拉菜单</h2>
+        <hr>
+        <div class="dropdown">
+            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#"
+               href="javascript:;">
+                下拉多级菜单 <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                <li><a href="javascript:;">一级菜单</a></li>
+                <li><a href="javascript:;">一级菜单</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="javascript:;">一级菜单</a>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="javascript:;">二级菜单</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-submenu">
+                            <a href="javascript:;">二级菜单</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:;">三级菜单</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div> -->
+
+
+
+    <div class="dropdown">
+
+        <div id="jmenu">
+
+        </div>
+
+    </div>
+
+   <div data-role="page" id="page1">
+      <div data-role="header">
+        <h1>jQuery Mobile Example</h1>
+      </div>
+      <div role="main" class="ui-content" id="app">
+
+        <div data-role="collapsible">
+          <h3>哲学</h3>
+          <div>
+              哲学是一门抽象的学科，它包括三个分类
+              <div data-role="collapsible">
+                <h3>古典哲学</h3>
+                <div>古典哲学代表的人物有：柏拉图，苏格拉底</div>
+              </div>
+              <div data-role="collapsible">
+                <h3>近代哲学</h3>
+                <p>近代哲学代表人物有：马克思、尼采等人物</p>
+              </div>
+              <div data-role="collapsible">
+                <h3>现代哲学</h3>
+                <p>现代哲学代表人物，到目前还不太清楚</p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script type="text/javascript">
+    function start(){
+      var s = '[{"c1name":"哲学","c1z":[{"c1zname":"古典哲学","c2z":[{"c2zname":"微观古典哲学"},{"c2zname":"宏观古典哲学"}]},{"c1zname":"现代哲学","c2z":[{"c2zname":"微观现代哲学"},{"c2zname":"宏观现代哲学"}]}]},{"c1name":"物理","c1z":[{"c1zname":"天体物理"},{"c1zname":"力学物理"}]},{"c1name":"计算机","c1z":[{"c1zname":"计算机科学","c2z":[{"c2zname":"计算机科学基础学科"},{"c2zname":"计算机科学高级应用"}]},{"c1zname":"计算机信息","c2z":[{"c2zname":"计算机网络通信"},{"c2zname":"计算机信息系统"}]}]},{"c1name":"材料科学","c1z":[{"c1zname":"高分子材料科学"},{"c1zname":"新型材料科学"}]}]';
+
+    var dd='[{"c1name":"哲学","description":"哲学是一门抽象的学科，它包括三个分类","c1z":[{"c1zname":"古典哲学"},{"c1zname":"近代哲学"}]},{"c1name":"数学","description":"数学是一门抽象的学科，它包括三个分类","c1z":[{"c1zname":"古典数学"},{"c1zname":"近代数学"}]},{"c1name":"英语","description":"英语是一门有趣的学科，它包括两个分类","c1z":[{"c1zname":"古典英语"},{"c1zname":"近代英语"}]}]';
+
+
+
+
+
+
+      // console.log(s);
+      var so=JSON.parse(s);
+      var dds=JSON.parse(dd);
+      // console.log(so);
+      console.log(dds);
+      var top_title="";
+      var ddeg="";
+      var hh3="";
+      var des="";
+      var li_sz="";
+      var li_son="";
+      for(var j=0;j<2;j++){
+          hh3='<div data-role="collapsible"><h3>'+dds[j].c1name+'</h3><div>'+dds[j].description+'<div data-role="collapsible" id="ttem_'+[j+1]+'" class="ttm"></div></div></div>';
+          // des='<p>'+dds[j].description+'</p>';
+          top_title=top_title+hh3;
+          for(var i=0;i<dds[j].c1z[i].length;i++){
+
+              var li = '<div data-role="collapsible"><p>'+dds[j].c1z[i].c1zname+'</p></div>';
+              li_sz = li_sz + li;
+              console.log(li_sz);
+              // for (var n = 0; n <so[j].c1z[i].length; n++) {
+              //   lson='<li><a role="menuitem" tabindex="-1" href="#">'+so[j].c1z[i].c2z[n].c2zname+'</a></li>';
+              //   li_son=li_son+lson;
+
+              // };
+
+     
+          };
+         $("#ttm_1").prepend(li_sz);
+
+          ddeg=ddeg+des;
+          var ul = '<div class="panel-group" id="accordion">'+'<div class="panel panel-default">'+'<div class="panel-heading">'+'<h4 class="panel-title">'+'<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">'+so[j].c1name+'</a></h4></div><div id="collapseOne" class="panel-collapse collapse in"><div class="panel-body">'+li_sz+'</div></div></div></div>';
+          $("#jmenu").append(ul);
+
+          // var ul='<div class="dropdown"><a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="javascript:;">'+so[j].c1name+'<span class="caret"></span></a><ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu"><li class="dropdown-submenu"><a tabindex="-1" href="javascript:;">'+li_sz+'</a><ul class="dropdown-menu"><li><a tabindex="-1" href="javascript:;">'+li_son+'</a></li></ul></li></ul></div>';
+          // $("#jmenu").append(ul);
+
+        
+      
+      // $("#app").prepend(top_title);
+      }
+
+       
+        
+
+      // var ul = top_title;
+      // var ua = li_sz;
+
+      // var ppp='<div role="main" class="ui-content"><div data-role="collapsible mains"><h3>'+top_title+'</h3>';
+      // var uu='<div><p>'+ddeg+'</p><div data-role="collapsible">';
+      // var nne='<h3>'+li_sz+'</h3></div></div></div></div>';
+      //     // $("#app").append(ul);
+      //     $("#bbp").append(uu);
+      //     $("#mmu").before(ppp);
+      //     $("#mmnn").append(nne);
+      // $("#app").prepend(ul);
+      // $("#ttem").append(ua);
+      // var ua = li_sz;
+      // $(".ttm").prepend(ua);
+
+    };
+
+// $(function () {
+//   $('#collapseFour').collapse({toggle: false})});
+//    $(function () { $('#collapseTwo').collapse('show')});
+//    $(function () { $('#collapseThree').collapse('toggle')});
+//    $(function () { $('#collapseOne').collapse('hide')});
+
+</script>
+
+
+<div data-role="collapsible">
+  <h3>哲学</h3>
+  <div>
+      哲学是一门抽象的学科，它包括三个分类
+      <div data-role="collapsible">
+        <h3>古典哲学</h3>
+        <div>古典哲学代表的人物有：柏拉图，苏格拉底</div>
+      </div>
+  </div>
+</div>
+
+
+</div>
+</body>
+</html>

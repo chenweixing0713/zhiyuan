@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>用户登录</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/inc.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/custom.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script type="text/javascript">
+     function login(){
+      var userName=document.getElementById("userName").value;
+      var pwd=document.getElementById("pwd").value;
+      var repwd=document.getElementById("repwd").value;
+      // var address=document.getElementById("address").value;
+      var matchResult=true;
+      if(userName==""||pwd==""||repwd==""){
+            alert("请确认是否有空缺项！");
+            matchResult=false;
+      }else if(userName.length<6||userName.length>20){
+            alert("用户名长度应在6到20个字符之间！");
+            matchResult=false;
+      }else if(userName==pwd||userName==repwd){
+            alert("密码或重复密码不能和用户名相同！");
+            matchResult=false;
+      }else if(pwd.length<6||pwd.length>20||repwd.length<6||repwd.length>20){
+            alert("密码或重复密码长度应在6到20个字符之间！");
+            matchResult=false;
+      }else if(pwd!=repwd){
+            alert("密码和重复密码不同，请重新输入！");
+            matchResult=false;
+      }else if(userName.length<6||userName.length>20){
+            alert("用户名长度应在6到20个字符之间！");
+            matchResult=false;
+      }
+
+       // if(matchResult==true){
+       //  var mailreg = /^\w+@\w+(\.\w+)+$/;
+       //  if(!address.match(mailreg)){
+       //      alert("邮箱格式不正确");
+       //      matchResult=false;
+       //  }
+       //     }
+
+      if(matchResult==true){
+           if(userName.charAt(0)>=0&&userName.charAt(0)<=9){
+                alert("用户名不能以数字字符开始！");
+                matchResult=false;
+            }
+      }
+
+      return matchResult;
+     }
+   </script>
+</head>
+
+<body class="blue">
+	<div id="page_title" class="row">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header maw center">
+				<img src="img/1.png">
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<script type="text/javascript">
+			document.write("<h4 class='center'>"+document.title+"</h4>");
+		</script>
+	</div>
+
+	<div class="container content bordernone padding20">
+		<form class="form-horizontal" role="form" name="loginForm" action="1.html" onsubmit="return login()" method="post">
+		  <div class="form-group">
+		    <div class="col-sm-12 input-group-lg">
+		      <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入用户名/手机号/邮箱" value="">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-12 input-group-lg">
+		      <input type="password" class="form-control" id="pwd" name="pwd" placeholder="请输入密码" value="">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-12 input-group-lg">
+		      <input type="password" class="form-control" id="repwd" name="repwd" placeholder="再次输入密码" value="">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-12">
+		      <input type="submit" class="btn btn-lg btn-primary btn-block" id="submit" value="登录">
+		    </div>
+		  </div>
+		</form>
+	</div>
+
+<div id="footer"></div>
+</body>
+</html>

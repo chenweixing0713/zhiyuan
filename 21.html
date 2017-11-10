@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>院校专业</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/inc.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/custom.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script type="text/javascript">
+		function zhuanye_json(){
+		obj = $.ajax({
+		    url: './zhongguohua.json',
+		    type: 'get',
+		    dataType: 'json',
+		    contentType : "application/json",
+		    data : null,
+		    success: function (user) {
+		        //字符串拼接
+		        var htmlNodes = '';
+		        for(var i = 0; i < user.length; i ++){
+		          var weer='<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header maw" id="school_detail_'+[i+1]+'"><h3 class="center">'+user[i].title+'</h3><p class="center"><span>'+user[i].name+'</span> :&nbsp;&nbsp;<span>'+user[i].code+'</span></p></div>';
+		        htmlNodes += weer;
+		        }
+
+		        $('#yuanxiao_3').append(htmlNodes);
+		    }
+		});
+		console.log(obj);return obj;
+		}
+	</script>
+</head>
+<body onload="zhuanye_json();">
+	<div id="page_title" class="row">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header maw" id="school_detail">
+				<script type="text/javascript">
+					document.write("<h3 class='center'>"+document.title+"</h3>");
+				</script>
+			</div>
+		</div>
+	</div>
+	<div class="row content padding_0_0" id="zhuanye_2">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 padding_0_10" id="jianjie">
+			<a href="#"><h3 class="padding15 center">简介</h3></a>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 padding_0_10" id="lqyx">
+			<a href="#"><h3 class="padding15 center">录取院校</h3></a>
+		</div>
+	</div>
+<!-- 	<div id="yuanxiao_3">
+		
+	</div> -->
+	<div id="jianjie_content">
+		
+	</div>
+	<div id="yuanxiaozhuanye">
+		
+	</div>
+	<div class="speech content padding10">
+		<p>Lincon speech in gettysbor was amazing, like a leader style in that evironment.</p>
+		<p>Irick wastion speech in gettysbor was amazing, like a leader style in that evironment.In this way, many people read more than one book, this was disturb gov.</p>
+		<a href="#" class="more">read more</a>
+	</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var $firstPara=$('.speech p').eq(1);
+	$firstPara.hide();
+	$('a.more').click(function(event){
+	if($firstPara.is(':hidden')){
+		$firstPara.show('slow');
+		$(this).text('read less');
+	}else{
+		$firstPara.hide('slow');
+		$(this).text('read more');
+	}
+});
+});
+</script>
+
+<script type="text/javascript">
+var jianjie=document.getElementById('jianjie');
+var lqyx=document.getElementById('lqyx');
+	$("#jianjie h3").click(function(){
+		$(this).addClass("active");
+		$("#lqyx h3").removeClass("active");
+});
+	$("#lqyx h3").click(function () {
+      $(this).addClass("active");
+      $("#jianjie h3").removeClass("active");
+  });
+
+$('#jianjie h3').click(function(event){
+	event.preventDefault();
+	$('#yuanxiaozhuanye').hide();
+	$("#jianjie_content").load('./inc/jianjie.htm');
+
+});
+
+</script>
+
+</body>
+</html>

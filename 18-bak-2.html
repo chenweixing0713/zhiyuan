@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>院校专业</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<!-- <script src="jquery-2.1.1.min.js"></script> -->
+	<link rel="stylesheet" href="./css/layui.css"  media="all">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="page_title" class="row">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<div class="touxiang"><h3>头像</h3></div>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 xinxi">
+			<h2>{{message}}</h2>
+			<h4>{{school}}</h4>
+			<h4>{{leixing}}</h4>
+		</div>
+	</div>
+	<div id="search">
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">搜索</span>
+		  <input type="text" class="form-control" placeholder="搜大学" aria-describedby="basic-addon1">
+		</div>
+	</div>
+	<div id="example">
+	  <my-component></my-component>
+	</div>
+	<div class="row" id="kemu">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 left">
+			<router-link to="/benke"><h3>本科</h3></router-link>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 right">
+	    	<router-link to="/zhuanke"><h3>专科</h3></router-link>
+		</div>
+	</div>
+
+	<div id="app">
+	  <!-- 路由出口 -->
+	  <!-- 路由匹配到的组件将渲染在这里 -->
+	  <div class="content">
+	  	<router-view></router-view>
+	  </div>
+	  <div class="container footer">
+	    <!-- 使用 router-link 组件来导航. -->
+	    <!-- 通过传入 `to` 属性指定链接. -->
+	    <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+	    	<router-link to="/foo">回到首页</router-link>
+	    	<router-link to="/bar">联络我们</router-link>
+	    	<router-link to="/boo">一键拨号</router-link>
+	    	<router-link to="/zaa">在线咨询</router-link>
+	  </div>
+	</div>
+
+	<div class="toggles">
+		<div class="layui-collapse" lay-accordion="">
+		  <div class="layui-colla-item">
+		    <h4 class="layui-colla-title">专业</h4>
+		    <div class="layui-colla-content layui-show">
+		      <div class="layui-collapse" lay-accordion="">
+		        <div class="layui-colla-item">
+		          <h4 class="layui-colla-title">哲学</h4>
+		          <div class="layui-colla-content layui-show">
+		            <div class="layui-collapse" lay-accordion="">
+		              <div class="layui-colla-item">
+		                <h4 class="layui-colla-title">现代哲学</h4>
+		                <div class="layui-colla-content layui-show">
+		                  现代哲学很深奥，也很现代
+		                </div>
+		              </div>
+		              <div class="layui-colla-item">
+		                <h4 class="layui-colla-title">近期哲学</h4>
+		                <div class="layui-colla-content">
+		                  <p>据说可以用来炒股</p>
+		                </div>
+		              </div>
+		              <div class="layui-colla-item">
+		                <h4 class="layui-colla-title">古典哲学</h4>
+		                <div class="layui-colla-content">
+		                  <p>现在越来越吃香</p>
+		                </div>
+		               </div>
+		            </div>
+		          </div>
+		        </div>
+		        <div class="layui-colla-item">
+		          <h4 class="layui-colla-title">物理</h4>
+		          <div class="layui-colla-content">
+		            <p>泰森挥一拳有多大的力</p>
+		          </div>
+		        </div>
+		        <div class="layui-colla-item">
+		          <h4 class="layui-colla-title">化学</h4>
+		          <div class="layui-colla-content">
+		            <p>水是什么组成的？</p>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="layui-colla-item">
+		    <h4 class="layui-colla-title">生物</h4>
+		    <div class="layui-colla-content">
+		      <p>这是一门很尴尬的课程</p>
+		    </div>
+		  </div>
+		  <div class="layui-colla-item">
+		    <h4 class="layui-colla-title">体育</h4>
+		    <div class="layui-colla-content">
+		      <p>我最喜欢的课之一</p>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+<script src="//res.layui.com/layui/build/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

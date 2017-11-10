@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>所有大学</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/inc.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/custom.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script type="text/javascript">
+	    function start(){
+	    	var user="";
+
+	      htmlobj = $.ajax({
+	                url : "http://www.yoochoice.com:8112/api/gaokao/v1/schools",
+	                type : "GET",
+	                dataType : "json",
+	                contentType : "application/json",
+	                data : null,//这里表示在发出请求的时候不传递任何参数
+	                success : function(res) {
+	                    if (typeof res === 'string') {
+	                        res = JSON.parse(res);
+	                    }
+
+	                    for (var i = 0; i < res.length; i++) {
+	                    var school=schools[i];
+	                    var tr="<tr><td>"+[i+1]+"</td><td>"+school[i].schoolName+"</td><td>"+school[i].areaName+"</td><td><img src='"+school[i].schoolLogo+"'/></td></tr>"
+	                    $("#t").append(tr);
+	                    }
+
+	                    console.log(JSON.stringify(school));
+	                    // $("#msg").html(JSON.stringify(school));
+	                },
+	                error : function(xhr, err, exception) {
+	                    console.log(err);
+	                    $("#msg").html(err);
+	                }
+	            });
+	    }
+	</script>
+</head>
+<body>
+	<div id="page_title" class="row">
+		<script type="text/javascript">
+			document.write("<h3 class='center'>"+document.title+"</h3>");
+		</script>
+	</div>
+	<div class="row" id="kemu">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 left">
+			<router-link to="/benke"><h3>地区</h3></router-link>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 right">
+	    	<router-link to="/zhuanke"><h3>筛选</h3></router-link>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	<button type="button" class="btn btn-default btn-primary form-control" onclick="aaTest();"><span class="h3">学校列表</span></button>
+	<div id="xuexiao">
+
+	</div>
+
+<!--     <div id="msg">
+    </div>
+    <table id="t">
+        <tr>
+            <td>序号</td>
+            <td>校名</td>
+            <td>地区</td>
+            <td>logo</td>
+        </tr>
+    </table> -->
+<div id="footer"></div>
+</body>
+</html>

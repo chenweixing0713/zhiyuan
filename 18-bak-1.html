@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app="cvteApp">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>院校专业</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <script src="./js/jquery-2.1.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./layer_mobile/layer_mobile/need/layer.css"  media="all">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <style>
+        table tr td{
+            padding:10px 5px;
+            border:1px solid #888;
+            text-align: center;
+        }
+        table tr:first-child{
+            background: #f2f2f2;
+        }
+        table{
+            width: 100%;
+        }
+        table tr img{
+            width: 100%;
+            max-width: 100px;
+        }
+    </style>
+    <script type="text/javascript">
+    function start(){
+      // htmlobj = $.ajax({
+      //               url : "http://www.yoochoice.com:8112/api/gaokao/v1/schools",
+      //               type : "GET",
+      //               dataType : "json",
+      //               contentType : "application/json",
+      //               data : null,//这里表示在发出请求的时候不传递任何参数
+      //               success : function(res) {
+      //                   if (typeof res === 'string') {
+      //                       res = JSON.parse(res);
+      //                   }
+                        var ss = '[{"c1name":"哲学","c1z":[{"c1zname":"古典哲学","c2z":[{"c2zname":"微观"},{"c2zname":"宏观"}]},{"c1zname":"现代哲学","c2z":[{"c2zname":"微观"},{"c2zname":"宏观"}]}]},{"c1name":"物理","c1z":[{"c1zname":"天体物理"},{"c1zname":"力学物理"}]}]';
+                        for (var i = 0; i < ss.length; i++) {
+                        // var school=ss[i];
+                        var tr='<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">'+[i+1]+'</div>';
+                        $("#header").append(tr);
+                        
+
+                        console.log(JSON.stringify(school));
+                        // $("#msg").html(JSON.stringify(school));
+                    },
+                    error : function(xhr, err, exception) {
+                        console.log(err);
+                        $("#msg").html(err);
+                    }
+    //             });
+    // }
+    </script>
+</head>
+
+<!-- define angular controller -->
+<body onload="start()">
+    <div id="page_title" class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>院校专业</h3>
+        </div>
+    </div>
+    <div id="search">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">搜索</span>
+          <input type="text" class="form-control" placeholder="搜大学" aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <div id="example">
+      <my-component></my-component>
+    </div>
+    <div class="row" id="kemu">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 left">
+            <router-link to="/benke"><h3>本科</h3></router-link>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 right">
+            <router-link to="/zhuanke"><h3>专科</h3></router-link>
+        </div>
+    </div>
+    <div id="msg">
+    </div>
+    <div id="t">
+
+        <div class="header" id="header">
+        </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                序号
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                校名
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                地区
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                logo
+            </div>
+        <!-- <div id="bodyer">
+            
+        </div> -->
+
+    </div>
+</body>
+</html>

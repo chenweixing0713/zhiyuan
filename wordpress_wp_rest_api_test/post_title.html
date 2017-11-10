@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>东洋国际翻译最新资讯</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/inc.js"></script>
+	<!-- <script type="text/javascript" src="js/custom.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="../css/custom.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<style type="text/css">
+		.meeps{
+			/*width:200px;*/
+			white-space:nowrap;
+			overflow:hidden;
+			text-overflow:ellipsis;
+		}
+		.awesome img{
+			display: block;
+			margin:5px auto;
+			width: 100%;
+		}
+	</style>
+	<script type="text/javascript">
+		function sbb(){
+		obj = $.ajax({
+		    url: 'http://www.okdyfy.com/wp-json/wp/v2/posts/',
+		    type: 'get',
+		    dataType: 'json',
+		    contentType : "application/json",
+		    data : null,
+		    success: function (user) {
+		        //字符串拼接
+		        var htmlNodes = '';
+		        for(var i = 0; i < user.length; i ++){
+		          var weer='<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 meeps"><a href="'+user[i].link+'">'+user[i].title.rendered+'</a></div><div class="clear"></div>';
+		        htmlNodes += '<div class="row amew">'+weer+'</div>';
+		        }
+
+		        $('#ybb').append(htmlNodes);
+		    }
+		});
+		console.log(obj);
+		return obj;
+		}
+	</script>
+</head>
+<body onload="sbb();">
+	<div id="page_title" class="row">
+		<!--  <script type="text/javascript">
+			document.write("<h3 class='center'>"+document.title+"</h3>");
+		</script> -->
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header maw" id="school_detail">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center awesome">
+					<img src="image/okdy.png">
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="row" id="kemu">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<script type="text/javascript">
+				document.write("<h4>"+document.title+"</h4>");
+			</script>
+		</div>
+	</div>
+	<div id="ybb"></div>
+
+<div id="footer"></div>
+</body>
+</html>

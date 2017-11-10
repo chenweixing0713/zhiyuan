@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>中国画</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/inc.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/custom.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script type="text/javascript">
+		function zhuanye_json(){
+		obj = $.ajax({
+		    url: './zhongguohua.json',
+		    type: 'get',
+		    dataType: 'json',
+		    contentType : "application/json",
+		    data : null,
+		    success: function (user) {
+		        //字符串拼接
+		        var htmlNodes = '';
+		        for(var i = 0; i < user.length; i ++){
+		          var weer='<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header maw" id="school_detail_'+[i+1]+'"><h3 class="center">'+user[i].title+'</h3><p class="center"><span>'+user[i].name+'</span> :&nbsp;&nbsp;<span>'+user[i].code+'</span></p></div>';
+		        htmlNodes += weer;
+		        }
+
+		        $('#page_title').append(htmlNodes);
+		    }
+		});
+		console.log(obj);return obj;
+		}
+	</script>
+</head>
+<body onload="zhuanye_json();">
+	<div id="page_title" class="row">
+	</div>
+	<div class="row content padding_0_0" id="zhuanye_2">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 padding_0_10" id="jianjie">
+			<a href="#"><h3 class="padding15 center">简介</h3></a>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 padding_0_10" id="lqyx">
+			<a href="#"><h3 class="padding15 center">录取院校</h3></a>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+<div id="footer"></div>
+
+<script type="text/javascript">
+var jianjie=document.getElementById('jianjie');
+var lqyx=document.getElementById('lqyx');
+	$("#jianjie h3").click(function(){
+		$(this).addClass("active");
+		$("#lqyx h3").removeClass("active");
+});
+	$("#lqyx h3").click(function () {
+      $(this).addClass("active");
+      $("#jianjie h3").removeClass("active");
+  })
+</script>
+</body>
+</html>

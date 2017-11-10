@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>普罗米修律师事务所文章分类</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/inc.js"></script>
+	<!-- <script type="text/javascript" src="js/custom.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="../css/custom.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<style type="text/css">
+		.meeps{
+			/*width:200px;*/
+			white-space:nowrap;
+			overflow:hidden;
+			text-overflow:ellipsis;
+			padding-left: 0px;
+		}
+		.awesome img{
+			display: block;
+			margin:5px auto;
+			width: 100%;
+		}
+		.tit p{
+			font-weight: 400;
+			font-size: 1em;
+			color:#5A9820;
+		}
+		.panel-group .panel {
+		    margin-top: 5px;
+		}
+		.content{
+			padding:10px 0px;
+		}
+		.tit{
+			padding-left: 0px;
+		}
+	</style>
+<script type="text/javascript">
+function useri(){
+		userinf = $.ajax({
+			//wordpress默认的显示数量为10篇，为了显示更多我们可以添加参数，下面的这句就是每页显示20条信息，更多的
+			//参数可以参考地址https://developer.wordpress.org/rest-api/reference/categories/
+		    url: 'http://www.dingqilawyer.com/wp-json/wp/v2/categories?per_page=20',
+		    type: 'get',
+		    dataType: 'json',
+		    contentType : "application/json",
+		    data : null,
+		    success: function (users) {
+		        //字符串拼接
+		        var emin = '';
+		        for(var i = 0; i < users.length; i ++){
+		          var pbr='<div class="row content"><div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 tit"><span class="center">'+users[i].id+'</span></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 tit"><a href="'+users[i].link+'"><span class="center">'+users[i].name+'</span></a></div><div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 tit"><span class="center">'+users[i].slug+'</span></div></div>';
+		        emin += pbr;
+		        }
+
+		        $('#userinfo').append(emin);
+		    }
+		});
+		console.log(userinf);return userinf;
+}
+</script>
+</head>
+<body>
+	<div id="page_title" class="row">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header maw" id="school_detail">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center awesome">
+					<img src="image/dingqilawyer.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title" onclick="useri();">
+				<a data-toggle="collapse" data-parent="#accordion"
+				   href="#collapseOne">
+					<script type="text/javascript">
+						document.write("<span>"+document.title+"</span>");
+					</script>
+				</a>
+			</h4>
+		</div>
+		<div id="collapseOne" class="panel-collapse collapse">
+			<div class="panel-body">
+				<div class="row content">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 tit">
+						<p>ID</p>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 tit">
+						<p>分类名</p>
+					</div>
+					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 tit">
+						<p>分类别称</p>
+					</div>
+				</div>
+				<div id="userinfo"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="footer"></div>
+</body>
+</html>

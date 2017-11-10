@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="cvteApp">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+    <style>
+        table tr td{
+            padding:20px;
+            border:1px solid #888;
+            text-align: center;
+        }
+        table tr:first-child{
+            background: #f2f2f2;
+        }
+        table{
+            width: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+    function start(){
+      htmlobj = $.ajax({
+                    url : "http://www.yoochoice.com:8112/api/gaokao/v1/schools",
+                    type : "GET",
+                    dataType : "json",
+                    contentType : "application/json",
+                    data : null,//这里表示在发出请求的时候不传递任何参数
+                    success : function(res) {
+                        if (typeof res === 'string') {
+                            res = JSON.parse(res);
+                        }
+
+                        for (var i = 0; i < res.length; i++) {
+                        var school=res[i];
+                        var tr="<tr><td>"+[i+1]+"</td><td>"+school.schoolName+"</td><td>"+school.areaName+"</td><td><img src='"+school.schoolLogo+"'/></td></tr>"
+                        $("#t").append(tr);
+                        }
+
+                        // console.log(JSON.stringify(school));
+                        // $("#msg").html(JSON.stringify(school));
+                    },
+                    error : function(xhr, err, exception) {
+                        console.log(err);
+                        $("#msg").html(err);
+                    }
+                });
+    }
+    </script>
+</head>
+
+<!-- define angular controller -->
+<body onload="start()">
+    <div id="msg">
+    </div>
+    <table id="t">
+
+        <tr>
+            <td>序号</td>
+            <td>校名</td>
+            <td>地区</td>
+            <td>logo</td>
+        </tr>
+
+    </table>
+</body>
+</html>
